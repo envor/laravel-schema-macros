@@ -2,9 +2,9 @@
 
 namespace Envor\SchemaMacros;
 
+use Envor\SchemaMacros\Commands\SchemaMacrosCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Envor\SchemaMacros\Commands\SchemaMacrosCommand;
 
 class SchemaMacrosServiceProvider extends PackageServiceProvider
 {
