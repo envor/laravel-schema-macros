@@ -2,9 +2,9 @@
 
 namespace Envor\SchemaMacros\Tests;
 
+use Envor\SchemaMacros\SchemaMacrosServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Envor\SchemaMacros\SchemaMacrosServiceProvider;
 
 class TestCase extends Orchestra
 {
