@@ -47,13 +47,13 @@ it('can create a sqlite database if it does not exist', function () {
 it('can create a sqlite database if it does not exist recursively', function () {
     $path = Storage::path('/path/to/database.sqlite');
 
-    expect(DB::connection($this->connection)->getSchemaBuilder()->createDatabaseIfNotExistsRecursive($path))->toBeTrue();
-    expect(DB::connection($this->connection)->getSchemaBuilder()->createDatabaseIfNotExistsRecursive($path))->toBeFalse();
+    expect(DB::connection($this->connection)->getSchemaBuilder()->createDatabaseIfNotExists($path))->toBeTrue();
+    expect(DB::connection($this->connection)->getSchemaBuilder()->createDatabaseIfNotExists($path))->toBeFalse();
 
     Storage::fake('local');
 
-    expect(Schema::connection($this->connection)->createDatabaseIfNotExistsRecursive($path))->toBeTrue();
-    expect(Schema::connection($this->connection)->createDatabaseIfNotExistsRecursive($path))->toBeFalse();
+    expect(Schema::connection($this->connection)->createDatabaseIfNotExists($path))->toBeTrue();
+    expect(Schema::connection($this->connection)->createDatabaseIfNotExists($path))->toBeFalse();
 });
 
 it('can trash a sqlite database', function () {

@@ -117,7 +117,7 @@ Schema::connection('mariadb')->trashDatabase('schema_demo');
 The `emptyTrash()` method will erase all `trashed` databases from disk which are reachable from the current connection:
 
 > [!TIP]
-> To only permanently erase databases trahed later than a given age and keep those which are newer,    
+> To only permanently erase databases trashed later than a given age and keep those which are newer,    
 > you may pass the maximum age in days for the databases you want to keep. 
 
 ```php
@@ -144,7 +144,7 @@ Schema::connection('mysql')->emptyTrash();
 
 > [!IMPORTANT]  
 > Tests use [spatie/docker](https://github.com/spatie/docker) for testing against various database servers.   
-> Docker is required for running tests!
+> Docker is required for running tests locally!
 
 ```bash
 composer test
