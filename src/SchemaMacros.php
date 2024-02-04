@@ -5,7 +5,7 @@ namespace Envor\SchemaMacros;
 class SchemaMacros
 {
     /**
-     * The date format used for the trash table
+     * The date format used for the trash
      * 
      * @var string
      */
