@@ -15,40 +15,136 @@ You can install the package via composer:
 composer require envor/laravel-schema-macros
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-schema-macros-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="laravel-schema-macros-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-schema-macros-views"
-```
-
 ## Usage
 
+[databaseExists()](#databaseexists)    
+[createDatabaseIfNotExists()](#createdatabaseifnotexists)   
+[trashDatabase()](#trashdatabase)
+[emptyTrash()](#emptytrash)
+
+
+### #`databaseExists()`
+
+The `databaseExists()` method determines if the given database exists:
+
 ```php
-$schemaMacros = new Envor\SchemaMacros();
-echo $schemaMacros->echoPhrase('Hello, Envor!');
+use Illuminate\Support\Facades\Schema;
+
+$database = database_path('my-new-database.sqlite');
+
+Schema::connection('sqlite')->databaseExists($database);
+
+// false
+
+touch($database);
+
+Schema::connection('sqlite')->databaseExists($database);
+
+// true
+
+Schema::connection('mysql')->databaseExists('abc');
+
+// false
+
+Schema::connection('mysql')->createDatabase('abc');
+
+
+Schema::connection('mysql')->databaseExists('abc');
+
+// true
+
+```
+
+### #`createDatabaseIfNotExists()`
+
+The `createDatabaseIfNotExists()` method creates the given database if it does not exist:
+
+```php
+use Illuminate\Support\Facades\Schema;
+
+$default = database_path('database.sqlite');
+
+touch($default);
+
+Schema::connection('sqlite')->createDatabaseIfNotExists($default);
+
+// false
+
+Schema::connection('sqlite')->createDatabaseIfNotExists(database_path('another_database'));
+
+// true
+
+
+Schema::connection('mysql')->createDatabase('brand_new_database');
+
+// true
+
+```
+
+The `createDatabaseIfNotExists()` method will also create `sqlite` database files recursively:
+
+```php
+
+$newFile = database_path('/new/directories/will/be/created/recursively/db.sqlite');
+
+Schema::connection('sqlite')->createDatabaseIfNotExists($newFile);
+
+// true
+```
+
+### #`trashDatabase()`
+
+The `trashDatabase()` method will move the database to the `trash` and timestamp it:
+
+> [!TIP]
+> Sqlite databases are moved to a `.trash` directory on the local storage disk by default.    
+> You may optionally pass the name of another storage disk as a second argument.
+
+```php
+$database = database_path('database.sqlite');
+
+Schema::connection('sqlite')->trashDatabase($database);
+
+// /home/forge/mysite.com/storage/app/.trash/2024-02-04_06-29-11_database.sqlite
+
+Schema::connection('mariadb')->trashDatabase('schema_demo');
+
+// trashed_2024-02-04_06-44-42_schema_demo
+```
+
+### #`emptyTrash()`
+
+The `emptyTrash()` method will erase all `trashed` databases disk which are reachable from the current connection:
+
+> [!TIP]
+> To only permanently erase databases trahed later than a given age and keep those which are newer,    
+> you may pass the maximum age in days for the databases you want to keep. 
+
+```php
+$database = database_path('database.sqlite');
+
+Schema::connection('sqlite')->trashDatabase($database);
+
+// /home/forge/mysite.com/storage/app/.trash/2024-02-04_06-29-11_database.sqlite
+
+Schema::connection('sqlite')->emptyTrash();
+
+// 1
+
+Schema::connection('mysql')->trashDatabase('schema_demo');
+
+// trashed_2024-02-04_06-44-42_schema_demo
+
+Schema::connection('mysql')->emptyTrash();
+
+// 1
 ```
 
 ## Testing
+
+> [!IMPORTANT]  
+> Tests use [spatie/docker](https://github.com/spatie/docker) for testing against various database servers.   
+> Docker is required for running tests!
 
 ```bash
 composer test
