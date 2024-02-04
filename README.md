@@ -114,7 +114,7 @@ Schema::connection('mariadb')->trashDatabase('schema_demo');
 
 ### #`emptyTrash()`
 
-The `emptyTrash()` method will erase all `trashed` databases disk which are reachable from the current connection:
+The `emptyTrash()` method will erase all `trashed` databases from disk which are reachable from the current connection:
 
 > [!TIP]
 > To only permanently erase databases trahed later than a given age and keep those which are newer,    
