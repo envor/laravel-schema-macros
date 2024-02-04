@@ -26,7 +26,7 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
             ->hasConfigFile();
     }
 
-    public function packageBooted() : void
+    public function packageBooted(): void
     {
         $this->bootMysqlMacros();
         $this->bootSQLiteMacros();
