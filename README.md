@@ -1,4 +1,4 @@
-# This is my package laravel-schema-macros
+# laravel-schema-macros
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/envor/laravel-schema-macros.svg?style=flat-square)](https://packagist.org/packages/envor/laravel-schema-macros)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/envor/laravel-schema-macros/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/envor/laravel-schema-macros/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -19,7 +19,7 @@ composer require envor/laravel-schema-macros
 
 [databaseExists()](#databaseexists)    
 [createDatabaseIfNotExists()](#createdatabaseifnotexists)   
-[trashDatabase()](#trashdatabase)
+[trashDatabase()](#trashdatabase)    
 [emptyTrash()](#emptytrash)
 
 
