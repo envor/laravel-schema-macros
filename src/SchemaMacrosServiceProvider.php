@@ -26,13 +26,13 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
             ->hasConfigFile();
     }
 
-    public function packageBooted()
+    public function packageBooted() : void
     {
         $this->bootMysqlMacros();
         $this->bootSQLiteMacros();
     }
 
-    protected function bootMysqlMacros()
+    protected function bootMysqlMacros(): void
     {
         MySqlBuilder::macro('mysqlDatabaseExists', function (string|Stringable $database): bool {
             /** @var \Illuminate\Database\MySqlBuilder $this */
@@ -118,7 +118,7 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
         });
     }
 
-    protected function bootSQLiteMacros()
+    protected function bootSQLiteMacros(): void
     {
         SQLiteBuilder::macro('databaseExists', function (string|Stringable $database) {
             if ($this instanceof MySqlBuilder) {
