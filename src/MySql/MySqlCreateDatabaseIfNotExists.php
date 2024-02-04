@@ -1,6 +1,6 @@
 <?php
 
-namespace Envor\SchemaMacros\Macros\MySql;
+namespace Envor\SchemaMacros\MySql;
 
 use Stringable;
 

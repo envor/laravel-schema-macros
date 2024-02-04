@@ -104,10 +104,10 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
     private function sqliteBuilderMacros(): array
     {
         return [
-            'sqliteDatabaseExists' => \Envor\SchemaMacros\Macros\SQLite\SQLiteDatabaseExists::class,
-            'sqliteCreateDatabaseIfNotExists' => \Envor\SchemaMacros\Macros\SQLite\SQLiteCreateDatabaseIfNotExists::class,
-            'sqliteTrashDatabase' => \Envor\SchemaMacros\Macros\SQLite\SQLiteTrashDatabase::class,
-            'sqliteEmptyTrash' => \Envor\SchemaMacros\Macros\SQLite\SQLiteEmptyTrash::class,
+            'sqliteDatabaseExists' => \Envor\SchemaMacros\SQLite\SQLiteDatabaseExists::class,
+            'sqliteCreateDatabaseIfNotExists' => \Envor\SchemaMacros\SQLite\SQLiteCreateDatabaseIfNotExists::class,
+            'sqliteTrashDatabase' => \Envor\SchemaMacros\SQLite\SQLiteTrashDatabase::class,
+            'sqliteEmptyTrash' => \Envor\SchemaMacros\SQLite\SQLiteEmptyTrash::class,
         ];
     }
 
@@ -117,10 +117,10 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
     private function mysqlBuilderMacros(): array
     {
         return [
-            'mysqlDatabaseExists' => \Envor\SchemaMacros\Macros\MySql\MySqlDatabaseExists::class,
-            'mysqlCreateDatabaseIfNotExists' => \Envor\SchemaMacros\Macros\MySql\MySqlCreateDatabaseIfNotExists::class,
-            'mysqlTrashDatabase' => \Envor\SchemaMacros\Macros\MySql\MySqlTrashDatabase::class,
-            'mysqlEmptyTrash' => \Envor\SchemaMacros\Macros\MySql\MySqlEmptyTrash::class,
+            'mysqlDatabaseExists' => \Envor\SchemaMacros\MySql\MySqlDatabaseExists::class,
+            'mysqlCreateDatabaseIfNotExists' => \Envor\SchemaMacros\MySql\MySqlCreateDatabaseIfNotExists::class,
+            'mysqlTrashDatabase' => \Envor\SchemaMacros\MySql\MySqlTrashDatabase::class,
+            'mysqlEmptyTrash' => \Envor\SchemaMacros\MySql\MySqlEmptyTrash::class,
         ];
     }
 }

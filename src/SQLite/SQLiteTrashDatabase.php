@@ -1,6 +1,6 @@
 <?php
 
-namespace Envor\SchemaMacros\Macros\SQLite;
+namespace Envor\SchemaMacros\SQLite;
 
 use Envor\SchemaMacros\SchemaMacros;
 use Illuminate\Support\Facades\File;
