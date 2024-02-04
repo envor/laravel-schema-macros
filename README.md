@@ -144,7 +144,7 @@ Schema::connection('mysql')->emptyTrash();
 
 > [!IMPORTANT]  
 > Tests use [spatie/docker](https://github.com/spatie/docker) for testing against various database servers.   
-> Docker is required for running tests!
+> Docker is required for running tests locally!
 
 ```bash
 composer test
