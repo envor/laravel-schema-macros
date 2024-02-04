@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/envor/laravel-schema-macros/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/envor/laravel-schema-macros/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/envor/laravel-schema-macros.svg?style=flat-square)](https://packagist.org/packages/envor/laravel-schema-macros)
 
-Some helpful (database level) macros for laravel's schema builder
+Some helpful (database level) macros for laravel's schema builder. Requires Laravel 11.
 
 ## Installation
 
