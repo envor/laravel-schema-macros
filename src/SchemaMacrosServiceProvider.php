@@ -20,8 +20,7 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('laravel-schema-macros')
-            ->hasConfigFile();
+            ->name('laravel-schema-macros');
     }
 
     public function packageBooted(): void
