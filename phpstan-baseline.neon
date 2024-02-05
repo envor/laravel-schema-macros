@@ -21,11 +21,6 @@ parameters:
 			path: src/MySql/MySqlTrashDatabase.php
 
 		-
-			message: "#^Negated boolean expression is always true\\.$#"
-			count: 1
-			path: src/SQLite/SQLiteCreateDatabaseIfNotExists.php
-
-		-
 			message: "#^Cannot call method make\\(\\) on mixed\\.$#"
 			count: 1
 			path: src/SchemaMacros.php
