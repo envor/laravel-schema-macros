@@ -20,7 +20,7 @@ class MySqlDatabaseExists
         return function (string|Stringable $database): bool {
             $database = (string) $database;
 
-            /** @var \Illuminate\Database\MySqlBuilder $this */
+            /** @var \Illuminate\Database\Schema\MySqlBuilder $this */
             return (bool) $this->getConnection()->select("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{$database}'");
         };
     }

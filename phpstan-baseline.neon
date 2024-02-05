@@ -6,16 +6,6 @@ parameters:
 			path: src/MySql/MySqlCreateDatabaseIfNotExists.php
 
 		-
-			message: "#^Call to method getConnection\\(\\) on an unknown class Illuminate\\\\Database\\\\MySqlBuilder\\.$#"
-			count: 1
-			path: src/MySql/MySqlDatabaseExists.php
-
-		-
-			message: "#^PHPDoc tag @var for variable \\$this contains unknown class Illuminate\\\\Database\\\\MySqlBuilder\\.$#"
-			count: 1
-			path: src/MySql/MySqlDatabaseExists.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/MySql/MySqlEmptyTrash.php
@@ -36,21 +26,36 @@ parameters:
 			path: src/SQLite/SQLiteCreateDatabaseIfNotExists.php
 
 		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			message: "#^Cannot call method make\\(\\) on mixed\\.$#"
 			count: 1
-			path: src/SQLite/SQLiteCreateDatabaseIfNotExists.php
+			path: src/SchemaMacros.php
 
 		-
-			message: "#^Instanceof between \\$this\\(Envor\\\\SchemaMacros\\\\SchemaMacrosServiceProvider\\) and Illuminate\\\\Database\\\\Schema\\\\MySqlBuilder will always evaluate to false\\.$#"
-			count: 4
-			path: src/SchemaMacrosServiceProvider.php
+			message: "#^Cannot call method singleton\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/SchemaMacros.php
 
 		-
-			message: "#^Instanceof between \\$this\\(Envor\\\\SchemaMacros\\\\SchemaMacrosServiceProvider\\) and Illuminate\\\\Database\\\\Schema\\\\SQLiteBuilder will always evaluate to false\\.$#"
-			count: 4
-			path: src/SchemaMacrosServiceProvider.php
+			message: "#^Method Envor\\\\SchemaMacros\\\\SchemaMacros\\:\\:getMacroForDriver\\(\\) has parameter \\$args with no type specified\\.$#"
+			count: 1
+			path: src/SchemaMacros.php
+
+		-
+			message: "#^Method Envor\\\\SchemaMacros\\\\SchemaMacros\\:\\:registerMacro\\(\\) has parameter \\$args with no type specified\\.$#"
+			count: 1
+			path: src/SchemaMacros.php
 
 		-
 			message: "#^Trying to invoke mixed but it's not a callable\\.$#"
-			count: 2
-			path: src/SchemaMacrosServiceProvider.php
+			count: 1
+			path: src/SchemaMacros.php
+
+		-
+			message: "#^Undefined variable\\: \\$this$#"
+			count: 1
+			path: src/SchemaMacros.php
+
+		-
+			message: "#^Class Envor\\\\SchemaMacros\\\\SchemaMacrosCollection extends generic class Illuminate\\\\Support\\\\Collection but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/SchemaMacrosCollection.php

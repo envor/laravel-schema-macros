@@ -18,13 +18,16 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
             ->name('laravel-schema-macros');
     }
 
-    public function packageRegistered()
+    public function packageRegistered(): void
     {
         SchemaMacros::registerMacrosUsing($this->macros());
 
         SchemaMacros::registerMacros();
     }
 
+    /**
+     * @return array<string, array<string, string>>
+     */
     private function macros(): array
     {
         return [

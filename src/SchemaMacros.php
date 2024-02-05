@@ -15,8 +15,6 @@ class SchemaMacros
     public const TRASH_DATE_FORMAT = 'Y-m-d_H-i-s';
 
     /**
-     * Get the macros and their supported <drivers, builders>
-     *
      * @return array<string, array<string, string>>
      */
     public static function macros(): array
@@ -24,7 +22,7 @@ class SchemaMacros
         return app()->make(SchemaMacrosCollection::class)->toArray();
     }
 
-    public static function registerMacros()
+    public static function registerMacros(): mixed
     {
         return Collection::make(static::macros())
             ->keys()
@@ -32,22 +30,28 @@ class SchemaMacros
             ->each(fn ($macro) => Builder::macro($macro, fn (...$args) => SchemaMacros::registerMacro($macro, $this, ...$args)));
     }
 
-    public static function registerMacrosUsing(array $macros)
+    /**
+     * @param  array<string, array<string, string>>  $macros
+     */
+    public static function registerMacrosUsing(array $macros): mixed
     {
         return app()->singleton(SchemaMacrosCollection::class, fn () => new SchemaMacrosCollection($macros));
     }
 
-    public static function supportedDrivers($macro): array
+    /**
+     * @return array<string>
+     */
+    public static function supportedDrivers(string $macro): array
     {
         return array_keys(static::macros()[$macro]);
     }
 
-    protected static function validDriver(string $macro, $driver): bool
+    protected static function validDriver(string $macro, string $driver): bool
     {
         return in_array($driver, static::supportedDrivers($macro));
     }
 
-    protected static function ensureDriverIsSupported(string $macro, $builder): bool
+    protected static function ensureDriverIsSupported(string $macro, Builder $builder): bool
     {
         if (! static::validDriver($macro, $driver = $builder->getConnection()->getDriverName())) {
             $supportedDrivers = implode(', ', static::supportedDrivers($macro));
@@ -57,9 +61,8 @@ class SchemaMacros
         return true;
     }
 
-    public static function registerMacro($macro, $builder, ...$args)
+    public static function registerMacro(string $macro, Builder $builder, ...$args): mixed
     {
-
         static::ensureDriverIsSupported($macro, $builder);
 
         return Collection::make(static::supportedDrivers($macro))
@@ -68,14 +71,14 @@ class SchemaMacros
             ->first();
     }
 
-    protected static function getMacroForDriver($driver, $macro, $builder, ...$args)
+    protected static function getMacroForDriver(string $driver, string $macro, Builder $builder, ...$args): mixed
     {
         static::registerMacroForDriver($driver, $macro);
 
         return $builder->{$driver.ucfirst($macro)}(...$args);
     }
 
-    protected static function registerMacroForDriver($driver, $macro): void
+    protected static function registerMacroForDriver(string $driver, string $macro): void
     {
         Builder::macro($driver.ucfirst($macro), app(static::macros()[$macro][$driver])());
     }
