@@ -55,7 +55,7 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
                     return $this->sqliteDatabaseExists($database);
                 }
 
-                throw new \Exception('The databaseExists() macro does not support'.get_class($this));
+                throw new \Exception('The databaseExists() macro does not support '.get_class($this));
             },
             'createDatabaseIfNotExists' => function (string|Stringable $database, bool $recursive = true) {
                 $database = (string) $database;
@@ -68,7 +68,7 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
                     return $this->sqliteCreateDatabaseIfNotExists($database, $recursive);
                 }
 
-                throw new \Exception('The createDatabaseIfNotExists() macro does not support'.get_class($this));
+                throw new \Exception('The createDatabaseIfNotExists() macro does not support '.get_class($this));
             },
             'trashDatabase' => function (string|Stringable $database, string $trashDisk = 'local') {
                 $database = (string) $database;
@@ -81,7 +81,7 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
                     return $this->sqliteTrashDatabase($database, $trashDisk);
                 }
 
-                throw new \Exception('The trashDatabase() macro does not support'.get_class($this));
+                throw new \Exception('The trashDatabase() macro does not support '.get_class($this));
             },
             'emptyTrash' => function (int $daysOld = 0, string $trashDisk = 'local') {
                 if ($this instanceof MySqlBuilder) {
