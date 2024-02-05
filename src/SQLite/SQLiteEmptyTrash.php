@@ -19,7 +19,7 @@ class SQLiteEmptyTrash
 {
     public function __invoke(): callable
     {
-        return function (int $daysOld, $trashDisk): int|bool {
+        return function (int $daysOld = 0, $trashDisk = 'local'): int|bool {
             $trashPath = Storage::disk($trashDisk)->path('.trash');
 
             if (! File::isDirectory($trashPath)) {

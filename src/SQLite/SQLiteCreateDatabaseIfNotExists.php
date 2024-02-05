@@ -32,13 +32,8 @@ class SQLiteCreateDatabaseIfNotExists
                 File::makeDirectory($directory, 0755, true);
             }
 
-            if (! File::exists($database)) {
-
-                /** @var \Illuminate\Database\Schema\SQLiteBuilder $this */
-                return $this->createDatabase($database);
-            }
-
-            return false;
+            /** @var \Illuminate\Database\Schema\SQLiteBuilder $this */
+            return $this->createDatabase($database);
         };
     }
 }
