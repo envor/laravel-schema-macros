@@ -21,7 +21,6 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
     public function packageRegistered(): void
     {
         SchemaMacros::registerMacrosUsing($this->macros());
-
         SchemaMacros::registerMacros();
     }
 
