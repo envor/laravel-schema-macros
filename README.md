@@ -75,7 +75,7 @@ Schema::connection('sqlite')->createDatabaseIfNotExists(database_path('another_d
 // true
 
 
-Schema::connection('mysql')->createDatabase('brand_new_database');
+Schema::connection('mysql')->createDatabaseIfNotExists('brand_new_database');
 
 // true
 
