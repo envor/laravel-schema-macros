@@ -21,7 +21,7 @@ class MySqlCreateDatabaseIfNotExists
             $database = (string) $database;
 
             /** @var \Illuminate\Database\Schema\MySqlBuilder $this */
-            if ($this->mysqlDatabaseExists($database)) {
+            if ($this->databaseExists($database)) {
                 return false;
             }
 
