@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Schema\\\\MySqlBuilder\\:\\:mysqlDatabaseExists\\(\\)\\.$#"
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Schema\\\\MySqlBuilder\\:\\:databaseExists\\(\\)\\.$#"
 			count: 1
 			path: src/MySql/MySqlCreateDatabaseIfNotExists.php
 

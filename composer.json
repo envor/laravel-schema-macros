@@ -1,6 +1,6 @@
 {
     "name": "envor/laravel-schema-macros",
-    "description": "This is my package laravel-schema-macros",
+    "description": "Some helpful (database level) macros for laravel's schema builder. Requires Laravel 11.",
     "keywords": [
         "envor",
         "laravel",
