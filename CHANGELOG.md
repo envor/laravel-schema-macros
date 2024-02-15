@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-schema-macros` will be documented in this file.
 
+## v1.1.3 - 2024-02-15
+
+**Full Changelog**: https://github.com/envor/laravel-schema-macros/compare/v1.1.1...v1.1.3
+
 ## v1.1.2 - 2024-02-05
 
 ### What's Changed
