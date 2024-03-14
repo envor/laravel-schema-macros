@@ -43,10 +43,12 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
             'trashDatabase' => [
                 'sqlite' => \Envor\SchemaMacros\SQLite\SQLiteTrashDatabase::class,
                 'mysql' => \Envor\SchemaMacros\MySql\MySqlTrashDatabase::class,
+                'mariadb' => \Envor\SchemaMacros\MySql\MySqlTrashDatabase::class,
             ],
             'emptyTrash' => [
                 'sqlite' => \Envor\SchemaMacros\SQLite\SQLiteEmptyTrash::class,
                 'mysql' => \Envor\SchemaMacros\MySql\MySqlEmptyTrash::class,
+                'mariadb' => \Envor\SchemaMacros\MySql\MySqlEmptyTrash::class,
             ],
         ];
     }
