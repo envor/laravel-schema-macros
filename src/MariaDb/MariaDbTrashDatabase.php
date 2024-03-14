@@ -23,7 +23,7 @@ class MariaDbTrashDatabase
             $database = (string) $database;
 
             /** @var \Illuminate\Database\Schema\MariaDbBuilder $this */
-            if (! $this->MariaDbDatabaseExists($database)) {
+            if (! $this->mariadbDatabaseExists($database)) {
                 return false;
             }
 
