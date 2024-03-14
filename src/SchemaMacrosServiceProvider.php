@@ -33,10 +33,12 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
             'databaseExists' => [
                 'sqlite' => \Envor\SchemaMacros\SQLite\SQLiteDatabaseExists::class,
                 'mysql' => \Envor\SchemaMacros\MySql\MySqlDatabaseExists::class,
+                'mariadb' => \Envor\SchemaMacros\MySql\MySqlDatabaseExists::class,
             ],
             'createDatabaseIfNotExists' => [
                 'sqlite' => \Envor\SchemaMacros\SQLite\SQLiteCreateDatabaseIfNotExists::class,
                 'mysql' => \Envor\SchemaMacros\MySql\MySqlCreateDatabaseIfNotExists::class,
+                'mariadb' => \Envor\SchemaMacros\MySql\MySqlCreateDatabaseIfNotExists::class,
             ],
             'trashDatabase' => [
                 'sqlite' => \Envor\SchemaMacros\SQLite\SQLiteTrashDatabase::class,
