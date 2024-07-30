@@ -2,6 +2,17 @@
 
 All notable changes to `laravel-schema-macros` will be documented in this file.
 
+## v1.1.5 - 2024-07-03
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/envor/laravel-schema-macros/pull/10
+* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/envor/laravel-schema-macros/pull/11
+* Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot in https://github.com/envor/laravel-schema-macros/pull/12
+* add pgsql by @inmanturbo in https://github.com/envor/laravel-schema-macros/pull/13
+
+**Full Changelog**: https://github.com/envor/laravel-schema-macros/compare/v1.1.4...v1.1.5
+
 ## v1.1.4 - 2024-03-14
 
 ### What's Changed

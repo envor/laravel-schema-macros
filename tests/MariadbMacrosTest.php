@@ -70,3 +70,20 @@ it('can perform the macros on mariadb connection', function () {
 
     expect(DB::connection($this->connection)->getSchemaBuilder()->emptyTrash(2))->toBe(3);
 });
+
+it('can copy table', function () {
+    DB::connection($this->connection)->getSchemaBuilder()->create('users', function ($table) {
+        $table->id();
+        $table->string('name');
+        $table->timestamps();
+    });
+
+    DB::connection($this->connection)->table('users')->insert([
+        ['name' => 'John Doe'],
+        ['name' => 'Jane Doe'],
+    ]);
+
+    expect(DB::connection($this->connection)->getSchemaBuilder()->copyTable('users', 'users_copy'))->toBeTrue();
+
+    expect(DB::connection($this->connection)->table('users_copy')->get())->toHaveCount(2);
+});
