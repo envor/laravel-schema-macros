@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-schema-macros` will be documented in this file.
 
+## v1.1.6 - 2024-07-30
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/envor/laravel-schema-macros/pull/14
+* add copy function by @inmanturbo in https://github.com/envor/laravel-schema-macros/pull/15
+
+**Full Changelog**: https://github.com/envor/laravel-schema-macros/compare/v1.1.5...v1.1.6
+
 ## v1.1.5 - 2024-07-03
 
 ### What's Changed
