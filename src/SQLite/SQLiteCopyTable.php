@@ -17,14 +17,15 @@ class SQLiteCopyTable
 {
     public function __invoke(): callable
     {
-        return function (string $from, string $to = null): mixed {
+        return function (string $from, ?string $to = null): mixed {
             $from = (string) $from;
-            $to = $to ? (string) $to : $from . '_copy';
+            $to = $to ? (string) $to : $from.'_copy';
 
             $copy = function ($from, $to) use (&$copy) {
                 /** @var \Illuminate\Database\Schema\SQLiteBuilder $this */
-                if($this->hasTable($to)) {
-                    $to = $to . '_copy';
+                if ($this->hasTable($to)) {
+                    $to = $to.'_copy';
+
                     return $copy($from, $to);
                 }
 

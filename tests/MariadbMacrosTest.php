@@ -71,7 +71,6 @@ it('can perform the macros on mariadb connection', function () {
     expect(DB::connection($this->connection)->getSchemaBuilder()->emptyTrash(2))->toBe(3);
 });
 
-
 it('can copy table', function () {
     DB::connection($this->connection)->getSchemaBuilder()->create('users', function ($table) {
         $table->id();
