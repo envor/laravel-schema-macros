@@ -52,6 +52,11 @@ class SchemaMacrosServiceProvider extends PackageServiceProvider
                 'mysql' => \Envor\SchemaMacros\MySql\MySqlEmptyTrash::class,
                 'mariadb' => \Envor\SchemaMacros\MariaDb\MariaDbEmptyTrash::class,
             ],
+            'copyTable' => [
+                'sqlite' => \Envor\SchemaMacros\SQLite\SQLiteCopyTable::class,
+                'mysql' => \Envor\SchemaMacros\MySql\MySqlCopyTable::class,
+                'mariadb' => \Envor\SchemaMacros\MariaDb\MariaDbCopyTable::class,
+            ],
         ];
     }
 }

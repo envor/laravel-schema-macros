@@ -107,3 +107,20 @@ it('can empty the trash of files older than a certain number of days', function 
 
     expect(Storage::disk('local')->files('.trash'))->toHaveCount(1);
 });
+
+it('can copy a table', function () {
+    DB::connection($this->connection)->getSchemaBuilder()->create('users', function ($table) {
+        $table->id();
+        $table->string('name');
+        $table->timestamps();
+    });
+
+    DB::connection($this->connection)->table('users')->insert([
+        ['name' => 'John Doe'],
+        ['name' => 'Jane Doe'],
+    ]);
+
+    expect(DB::connection($this->connection)->getSchemaBuilder()->copyTable('users', 'users_copy'))->toBeTrue();
+
+    expect(DB::connection($this->connection)->table('users_copy')->get())->toHaveCount(2);
+});
