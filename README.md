@@ -21,6 +21,7 @@ composer require envor/laravel-schema-macros
 [createDatabaseIfNotExists()](#createdatabaseifnotexists)   
 [trashDatabase()](#trashdatabase)    
 [emptyTrash()](#emptytrash)
+[copyTable()](#copytable)
 
 
 ### #`databaseExists()`
@@ -138,6 +139,23 @@ Schema::connection('mysql')->trashDatabase('schema_demo');
 Schema::connection('mysql')->emptyTrash();
 
 // 1
+```
+
+### #`copyTable()`
+
+The `copyTable()` method will copy the given table:
+
+
+```php
+$database = database_path('database.sqlite');
+
+Schema::connection('sqlite')->copyTable('users');
+
+// users_copy
+
+Schema::connection('sqlite')->copyTable('users', 'users_snapshot_1');
+
+// users_snapshot_1
 ```
 
 ## Testing
