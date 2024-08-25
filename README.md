@@ -20,7 +20,7 @@ composer require envor/laravel-schema-macros
 [databaseExists()](#databaseexists)    
 [createDatabaseIfNotExists()](#createdatabaseifnotexists)   
 [trashDatabase()](#trashdatabase)    
-[emptyTrash()](#emptytrash)
+[emptyTrash()](#emptytrash)    
 [copyTable()](#copytable)
 
 
